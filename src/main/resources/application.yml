@@ -1,0 +1,34 @@
+server:
+    port: 8080
+
+logging:
+    level:
+        root: INFO
+        org.springframework.web: INFO
+        org.springframework.security: INFO
+        org.springframework.security.oauth2: INFO
+
+spring:
+    security:
+        oauth2:
+            client:
+                registration:
+                    trigger-client:
+                        provider: spring
+                        client-id: triggerClient
+                        client-secret: kWQ7Vyvw6U1G6lIb8M2Q5Fv9hN4X7cDz
+                        authorization-grant-type: authorization_code
+                        redirect-uri: "http://127.0.0.1:8080/login/oauth2/code/{registrationId}"
+                        scope: openid
+                        client-name: trigger-client
+                    trigger-client-authorization-code:
+                        provider: spring
+                        client-id: triggerClient
+                        client-secret: kWQ7Vyvw6U1G6lIb8M2Q5Fv9hN4X7cDz
+                        authorization-grant-type: authorization_code
+                        redirect-uri: "http://127.0.0.1:8080/authorized"
+                        scope: triggers.read
+                        client-name: trigger-client-authorization-code
+                provider:
+                    spring:
+                        issuer-uri: http://auth-server:9000
