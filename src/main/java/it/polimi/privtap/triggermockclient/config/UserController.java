@@ -15,18 +15,18 @@ public class UserController {
     private WebClient webClient;
 
 
-    @GetMapping("/loggedIn")
+    @GetMapping("/triggers")
     public String[] getArticles(@RegisteredOAuth2AuthorizedClient("trigger-client-authorization-code") OAuth2AuthorizedClient authorizedClient
     ) {
         return this.webClient
                 .get()
-                .uri("http://127.0.0.1:8080/articles")
+                .uri("http://127.0.0.1:8080/loggedIn")
                 .attributes(oauth2AuthorizedClient(authorizedClient))
                 .retrieve()
                 .bodyToMono(String[].class)
                 .block();
     }
-    @GetMapping("/articles")
+    @GetMapping("/loggedIn")
     public String[] getArticles() {
         return new String[]{"Article 1", "Article 2", "Article 3"};
     }

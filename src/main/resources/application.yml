@@ -13,21 +13,21 @@ spring:
         oauth2:
             client:
                 registration:
-                    trigger-client:
+                    trigger-client-oidc:
                         provider: spring
-                        client-id: triggerClient
+                        client-id: trigger-client
                         client-secret: kWQ7Vyvw6U1G6lIb8M2Q5Fv9hN4X7cDz
                         authorization-grant-type: authorization_code
                         redirect-uri: "http://127.0.0.1:8080/login/oauth2/code/{registrationId}"
                         scope: openid
-                        client-name: trigger-client
+                        client-name: trigger-client-oidc
                     trigger-client-authorization-code:
                         provider: spring
-                        client-id: triggerClient
+                        client-id: trigger-client
                         client-secret: kWQ7Vyvw6U1G6lIb8M2Q5Fv9hN4X7cDz
                         authorization-grant-type: authorization_code
                         redirect-uri: "http://127.0.0.1:8080/authorized"
-                        scope: triggers.read
+                        scope: trigger.read
                         client-name: trigger-client-authorization-code
                 provider:
                     spring:
